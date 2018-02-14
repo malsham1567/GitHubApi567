@@ -3,9 +3,9 @@ import unittest
 from GetHub_user import get_reps
 
 
-class testGitUser(unittest.TestCase):
+class TestGetReps(unittest.TestCase):
     def testGetRepos(self):
-        self.assertEqual(get_reps('m6ni'), ['Repo: homework9- Number of commits: 2', 'Repo: home_work9 Number of commits: 7', 'Repo: homwork9_1 Number of commits: 2'])
+        self.assertEqual(get_reps('m6ni'), ['Repo: homework9- has  0 commits', 'Repo: home_work9 has  7 commits', 'Repo: homwork9_1 has  2 commits'])
         self.assertEqual(get_reps('talal3456'), 'Invalid user')
         self.assertEqual(get_reps(','), 'Invalid user')
 
