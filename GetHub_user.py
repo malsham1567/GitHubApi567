@@ -16,7 +16,11 @@ def get_reps(user_name):
         rep_name = repo['name']
         repo_url = requests.get('https://api.github.com/repos/{}/{}/commits'.format(user_name, rep_name))
         reps_info = json.loads(repo_url.text)
-        data.append('Repo: {} Number of commits: {}'.format(rep_name, len(reps_info)))
+        if rep_name in repo_url.text:
+            cnt = len(reps_info)
+        else:
+            cnt = 0
+        data.append('Repo: {} has  {} commits'.format(rep_name, cnt))
     return data
 
 def main():
